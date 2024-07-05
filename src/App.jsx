@@ -35,7 +35,9 @@ const App = () => {
     event.target.anecdote.value=''
     dispatch(newAnecdote(content))
   }
-
+  //comentario
+  //otro comentario
+  //ultimo comentario
   return (
     <div>
       <h2>Anecdotes</h2>
