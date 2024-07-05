@@ -4,7 +4,8 @@ import {getId} from './reducers/anecdoteReducer'
 const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
-
+  
+  //6.3
   const createAnecdote = (id) => {
     return {
       type: 'VOTE',
@@ -18,6 +19,7 @@ const App = () => {
     return [...anecdotes].sort((a,b)=> b.votes - a.votes)
   }
   
+  //6.3
   const newAnecdote = (anecdote) => {
     return{
       type:'NEW_NOTE',
@@ -46,7 +48,7 @@ const App = () => {
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={() => dispatch(createAnecdote(anecdote.id))}>vote</button>
+            <button onClick={() => dispatch(createAnecdote(anecdote.id))}>vote</button>{/*6.3*/}
           </div>
         </div>
       )}
