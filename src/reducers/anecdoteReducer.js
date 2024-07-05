@@ -27,7 +27,6 @@ export const reducer = (state = initialState, action) => {
       const id = action.payload.id
       const anecdoteToChange = state.find(a => a.id === id )
       const anecdoteChange = {...anecdoteToChange, votes: anecdoteToChange.votes +1}
-      // console.log(initialState)
       return state.map( a => a.id === id ? anecdoteChange : a)
     }
     default:
