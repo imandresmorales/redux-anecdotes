@@ -35,4 +35,28 @@ export const reducer = (state = initialState, action) => {
   }
 }
 
+export const voteAnecdote = (id) => {
+  return {
+    type: 'VOTE',
+    payload: {
+      id: id
+    }    
+  }
+} 
+
+export const anecdotesOrdenadas = (anecdotes) => {
+  return [...anecdotes].sort((a,b)=> b.votes - a.votes)
+}
+
+export const newAnecdote = (anecdote) => {
+  return{
+    type:'NEW_NOTE',
+    payload: {
+        content: anecdote,
+        id: getId(),
+        votes: 0
+    }
+  }
+}
+
 export default reducer
