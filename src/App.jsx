@@ -13,8 +13,12 @@ const App = () => {
       }    
     }
   } 
+
+  const anecdotesOrdenadas = () => {
+    return [...anecdotes].sort((a,b)=> b.votes - a.votes)
+  }
   
-  const f = (anecdote) => {
+  const newAnecdote = (anecdote) => {
     return{
       type:'NEW_NOTE',
       payload: {
@@ -27,16 +31,15 @@ const App = () => {
 
   const addAnecdote = (event) => {
     event.preventDefault()
-    // console.log(event.target.anecdote.value)
     const content = event.target.anecdote.value
     event.target.anecdote.value=''
-    dispatch(f(content))
+    dispatch(newAnecdote(content))
   }
 
   return (
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
+      {anecdotesOrdenadas().map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
