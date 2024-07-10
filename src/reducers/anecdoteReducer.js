@@ -20,6 +20,7 @@ const asObject = (anecdote) => {
 const initialState = anecdotesAtStart.map(asObject)
 
 export const reducer = (state = initialState, action) => {
+  // console.log('ACTION: ', action)
   switch (action.type) {
     case 'NEW_NOTE':
       return state.concat(action.payload)    
