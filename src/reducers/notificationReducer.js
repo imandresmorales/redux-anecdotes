@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = 'NO NOTIFICATION'
+const initialState = ''
 
 const notificationSlice = createSlice({
   name: 'notification',
@@ -16,4 +16,15 @@ const notificationSlice = createSlice({
 })
 
 export const {showNotification, hideNotification} = notificationSlice.actions
+
+export const setNotification = (vote, time) => {
+  return async dispatch => {
+    dispatch(showNotification(`${vote}`))
+    setTimeout(() => {
+      dispatch(hideNotification(``))
+  }, time*1000);
+
+  }
+}
+
 export default notificationSlice.reducer
